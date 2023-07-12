@@ -44,32 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
                   userProfile.isAdmin = false;
                 }
   
-                var emailDiv =
-                  '<a class="c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE" href="mailto:' +
-                  userProfile.email +
-                  '">' +
-                  userProfile.email +
-                  "</a>";
-  
-                var websiteDiv =
-                  '<a style="color:#ff4747" title="This user\'s website." href="' +
-                  userProfile.website +
-                  '">' +
-                  userProfile.website.replace("https://", "") +
-                  "</a>";
-  
-  
-                var profileAboutElement = document.getElementById("profileAbout");
-                profileAboutElement.textContent = userProfile.about;
-  
-                var profileLocationElement = document.getElementById("profileLocation");
-                profileLocationElement.textContent = userProfile.location;
-  
-                var profileEmailElement = document.getElementById("profileEmail");
-                profileEmailElement.innerHTML = emailDiv;
-  
-                var profileWebsiteElement = document.getElementById("profileWebsite");
-                profileWebsiteElement.innerHTML = websiteDiv;
   
                 var testNameElement = document.getElementById("profileName");
                 testNameElement.value = userProfile.name;
@@ -93,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (userProfile.isAdmin) {
           profileAdminElement.innerHTML = adminsvg;
         } else {
-          profileAdminElement.innerHTML = "";
+          profileAdminElement.innerHTML = "<!--This user is not a yEAh Admin.-->";
         }
       }
     }
