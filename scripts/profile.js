@@ -54,11 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
                             if (userData.admin) {
                                 roleArea.textContent = "Admin";
                             }
-
+                           
                             var profilePictureArea = document.getElementById("profilePicture");
                             var profilePictureSrc = "https://ugc.yeahgames.net/profile/p/default/png/" + "@" + userData.username + ".png";
-
+ 
                             profilePictureArea.setAttribute("src", profilePictureSrc);
+
+                            var profileLink = "https://members.yeahgames.net/@" + userData.username;
+
+                            var profileButtonArea = document.getElementById("profileButton");
+                            profileButtonArea.setAttribute("href", profileLink);
 
                         })
                         .catch(function (error) {
