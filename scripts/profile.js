@@ -50,8 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             var largeUsernameArea = document.getElementById("largeUsername");
                             largeUsernameArea.textContent = "@" + userData.username;
 
+                            var roleArea = document.getElementById("roleDiv");
+                            if (userData.admin) {
+                                roleArea.textContent = "Admin";
+                            }
+
                             var profilePictureArea = document.getElementById("profilePicture");
-                            var profilePictureSrc = "https://ugc.yeahgames.net/profile/p/default/png/" + "@" + userData.username + ".png"; 
+                            var profilePictureSrc = "https://ugc.yeahgames.net/profile/p/default/png/" + "@" + userData.username + ".png";
 
                             profilePictureArea.setAttribute("src", profilePictureSrc);
 
