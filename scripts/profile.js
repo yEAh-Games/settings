@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             var testNameElement = document.getElementById("profileName");
                             testNameElement.value = userProfile.name;
                             var largeUsernameArea = document.getElementById("largeUsername");
-                            largeUsernameArea.textContent = "@" + userData.username;
+                            largeUsernameArea.textContent = userData.username;
 
                             var roleArea = document.getElementById("roleDiv");
                             if (userData.admin) {
