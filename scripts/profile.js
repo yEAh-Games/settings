@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
                 var testNameElement = document.getElementById("profileName");
                 testNameElement.value = userProfile.name;
-                var largeUsername = document.getElementById("largeUsername");
-                largeUsername.value = "@" + userData.username;
+                var largeUsernameArea = document.getElementById("largeUsername");
+                largeUsernameArea.textContent = "@" + userData.username;
               })
               .catch(function (error) {
                 console.error("Error:", error);
