@@ -62,9 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             var profileLink = "https://members.yeahgames.net/@" + userData.username;
 
-                            var profileButtonArea = document.getElementById("profileButton");
-                            profileButtonArea.setAttribute("href", profileLink);
-
                         })
                         .catch(function (error) {
                             console.error("Error:", error);
