@@ -59,9 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             var profilePictureSrc = "https://ugc.yeahgames.net/profile/p/default/png/" + "@" + userData.username + ".png";
  
                             profilePictureArea.setAttribute("src", profilePictureSrc);
-
-                            var profileLink = "https://members.yeahgames.net/@" + userData.username;
-
                         })
                         .catch(function (error) {
                             console.error("Error:", error);
