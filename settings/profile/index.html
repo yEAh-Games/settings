@@ -143,7 +143,7 @@ class="_Ybd3WwuTVljUT4vEaM3 mngKhi_Rv06PF57lblDI mveJTCIb2WII7J4sY22F _wYiJGbRZy
                 <label for="first-name"
                   class="_Vb9igHms0hI1PQcvp_S TR_P65x9ie7j6uxFo_Cs c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">First
                   Name</label>
-                <input type="text" name="profileName" id="first-name"
+                <input type="text" name="profileName" id="profileName"
                   class="fzhbbDQ686T8arwvi_bJ jtAJHOc7mn7b4IKRO59D pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk __9sbu0yrzdhGIkLWNXl gx_pYWtAG2cJIqhquLbx mveJTCIb2WII7J4sY22F GdTcGtoKP5_bET3syLDl LceKfSImrGKQrtDGkpBV _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ olxDi3yL6f0gpdsOFDhx jqg6J89cvxmDiFpnV56r Mmx5lX7HVdrWCgh3EpTP H7KQDhgKsqZaTUouEUQL OyABRrnTV_kvHV7dJ0uE KpCMWe32PQyrSFbZVput q6szSHqGtBufkToFe_s5"
                   placeholder="Bonnie" required="">
               </div>
@@ -302,8 +302,6 @@ class="_Ybd3WwuTVljUT4vEaM3 mngKhi_Rv06PF57lblDI mveJTCIb2WII7J4sY22F _wYiJGbRZy
                 userProfile.website.replace("https://", "") +
                 "</a>";
 
-              var profileNameElement = document.getElementById("profileName");
-              profileNameElement.innerHTML = userProfile.name;
 
               var profileAboutElement = document.getElementById("profileAbout");
               profileAboutElement.textContent = userProfile.about;
@@ -317,7 +315,7 @@ class="_Ybd3WwuTVljUT4vEaM3 mngKhi_Rv06PF57lblDI mveJTCIb2WII7J4sY22F _wYiJGbRZy
               var profileWebsiteElement = document.getElementById("profileWebsite");
               profileWebsiteElement.innerHTML = websiteDiv;
 
-              var testNameElement = document.getElementById("testName");
+              var testNameElement = document.getElementById("profileName");
               testNameElement.value = userProfile.name;
             })
             .catch(function (error) {
