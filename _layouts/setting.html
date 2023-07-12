@@ -4,13 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{page.description}}.">
-  <meta property="og:description" content="{{page.description}}}" />
+  <meta name="description" content="{{page.description}}">
+  <meta property="og:description" content="{{page.description}}" />
   <meta property="og:site_name" content="yEAh Account Settings" />
   <meta name="msapplication-TileColor" content="#ff4747">
   <meta name="theme-color" content="#ff4747">
   <link rel="canonical" href="https://settings.yeahgames.net{{page.permalink}}">
   <title>{{page.title}} | Settings - yEAh Account</title>
+
+  <script>
+    if (!document.cookie.includes("yeahgames_userdata")) {
+      window.location.href = "https://accounts.yeahgames.net/login?continue=https://settings.yeahgames.net{{page.permalink}}";
+    }
+  </script>
 
   <script>
     if (!localStorage.getItem("sidebarExpanded")) {
