@@ -48,7 +48,7 @@ document.getElementById('file-input').addEventListener('change', function (event
                     method: 'PUT',
                     headers: {
                         'Authorization': 'Bearer ' + authorizeFromAPIServer,
-                        'Content-Type': 'image/png'
+                        'Content-Type': 'application/json'
                     },
                     body: formData
                 });
