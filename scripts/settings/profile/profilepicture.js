@@ -51,7 +51,7 @@ document.getElementById('file-input').addEventListener('change', function (event
         try {
             let sha = await getSha();
 
-            fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
+            let deleteResponse = await fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
                 method: 'DELETE',
                 headers: {
                     'Authorization': 'Bearer ' + authorizeFromAPIServer,
@@ -61,34 +61,34 @@ document.getElementById('file-input').addEventListener('change', function (event
                     message: "Remove old profile picture for @" + userData.username,
                     sha: sha
                 })
-            })
-                .then(function (response) {
-                    if (response.ok || response.status === 404) {
-                        console.log('File deleted successfully or not found');
-                        return fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
-                            method: 'PUT',
-                            headers: {
-                                'Authorization': 'Bearer ' + authorizeFromAPIServer,
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(data)
-                        });
-                    } else {
-                        throw new Error('Failed to delete profile picture');
-                    }
-                })
-                .then(function (response) {
-                    if (response.ok) {
-                        console.log('Profile picture uploaded successfully');
-                    } else {
-                        throw new Error('Failed to upload profile picture');
-                    }
-                })
-                .catch(function (error) {
-                    console.error('Error:', error.message);
-                });
+            });
+
+            if (deleteResponse.ok || deleteResponse.status === 404) {
+                console.log('File deleted successfully or not found');
+            } else {
+                throw new Error('Failed to delete profile picture');
+            }
         } catch (error) {
             console.error('Error:', error.message);
+        } finally {
+            try {
+                let uploadResponse = await fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': 'Bearer ' + authorizeFromAPIServer,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (uploadResponse.ok) {
+                    console.log('Profile picture uploaded successfully');
+                } else {
+                    throw new Error('Failed to upload profile picture');
+                }
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
         }
     };
 });
