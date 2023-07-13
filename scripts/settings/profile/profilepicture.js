@@ -36,7 +36,7 @@ document.getElementById('file-input').addEventListener('change', function (event
         method: 'DELETE',
         headers: {
             'Authorization': 'Bearer ' + authorizeFromAPIServer,
-            'Content-Type': 'application/json'
+            'Content-Type': 'image/png'
         }
     })
         .then(function (response) {
