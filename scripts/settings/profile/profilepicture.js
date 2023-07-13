@@ -42,37 +42,53 @@ document.getElementById('file-input').addEventListener('change', function (event
             content: base64Content
         };
 
-        fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
-            method: 'DELETE',
-            headers: {
-                'Authorization': 'Bearer ' + authorizeFromAPIServer,
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(function (response) {
-                if (response.ok || response.status === 404) {
-                    console.log('File deleted successfully or not found');
-                    return fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': 'Bearer ' + authorizeFromAPIServer,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    });
-                } else {
-                    throw new Error('Failed to delete file');
-                }
+        async function getSha() {
+            let response = await fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"));
+            let json = await response.json();
+            return json.sha;
+        }
+
+        try {
+            let sha = await getSha();
+
+            fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer ' + authorizeFromAPIServer,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: "delete file",
+                    sha: sha
+                })
             })
-            .then(function (response) {
-                if (response.ok) {
-                    console.log('File uploaded successfully');
-                } else {
-                    throw new Error('Failed to upload file');
-                }
-            })
-            .catch(function (error) {
-                console.error('Error:', error.message);
-            });
+                .then(function (response) {
+                    if (response.ok || response.status === 404) {
+                        console.log('File deleted successfully or not found');
+                        return fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
+                            method: 'PUT',
+                            headers: {
+                                'Authorization': 'Bearer ' + authorizeFromAPIServer,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        });
+                    } else {
+                        throw new Error('Failed to delete file');
+                    }
+                })
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log('File uploaded successfully');
+                    } else {
+                        throw new Error('Failed to upload file');
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Error:', error.message);
+                });
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
     };
 });
