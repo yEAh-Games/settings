@@ -38,7 +38,7 @@ document.getElementById('file-input').addEventListener('change', function (event
         var base64Content = reader.result.split(',')[1];
 
         var data = {
-            message: "upload file",
+            message: "Upload profile picture for @" + userData.username,
             content: base64Content
         };
 
@@ -58,7 +58,7 @@ document.getElementById('file-input').addEventListener('change', function (event
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    message: "delete file",
+                    message: "Remove old profile picture for @" + userData.username,
                     sha: sha
                 })
             })
@@ -74,14 +74,14 @@ document.getElementById('file-input').addEventListener('change', function (event
                             body: JSON.stringify(data)
                         });
                     } else {
-                        throw new Error('Failed to delete file');
+                        throw new Error('Failed to delete profile picture');
                     }
                 })
                 .then(function (response) {
                     if (response.ok) {
-                        console.log('File uploaded successfully');
+                        console.log('Profile picture uploaded successfully');
                     } else {
-                        throw new Error('Failed to upload file');
+                        throw new Error('Failed to upload profile picture');
                     }
                 })
                 .catch(function (error) {
