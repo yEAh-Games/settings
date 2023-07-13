@@ -34,7 +34,7 @@ document.getElementById('file-input').addEventListener('change', function (event
 
     var reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = function () {
+    reader.onload = async function () {
         var base64Content = reader.result.split(',')[1];
 
         var data = {
