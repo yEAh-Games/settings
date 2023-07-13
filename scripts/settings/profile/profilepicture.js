@@ -40,8 +40,8 @@ document.getElementById('file-input').addEventListener('change', function (event
         }
     })
         .then(function (response) {
-            if (response.ok) {
-                console.log('File deleted successfully');
+            if (response.ok || response.status === 404) {
+                console.log('File deleted successfully or not found');
                 var formData = new FormData();
                 formData.append('file', file);
                 return fetch('https://api.github.com/repos/yeah-games/ugc-uploads/contents/profile/p/default/png/' + encodeURIComponent("@" + userData.username + ".png"), {
