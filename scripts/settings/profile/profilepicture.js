@@ -12,7 +12,7 @@ function LM4S0ocngnWsZe8EQWAT() {
 }
 
 let ERWLnL9BCbeIzvdIEn8i = LM4S0ocngnWsZe8EQWAT();
-
+console.log("ERWLnL9BCbeIzvdIEn8i:", ERWLnL9BCbeIzvdIEn8i);
 
 var GMYLe = "gMa0YS";
 var iBa5q = "hpX8o9mux4ynw0sCJLL91RGPPQ";
@@ -26,7 +26,10 @@ var d4g6syxuT = Ifxz0.replace("9AU", "khc");
 var HTNNMZ2Cv = DnSS0.replace(DnSS0, "dYNbNwFvg2");
 
 var w01bi = G9h5YJoj9 + sZo1uS4IS + d4g6syxuT + IDraP + HTNNMZ2Cv;
-var Tm8WGII94E2t94CvKpmH = w01bi.replace("dYNbNwFvg2", LM4S0ocngnWsZe8EQWAT).replace("4H0U9Ba", "4H0U9B");
+console.log("w01bi:", w01bi);
+
+var Tm8WGII94E2t94CvKpmH = w01bi.replace("dYNbNwFvg2", ERWLnL9BCbeIzvdIEn8i).replace("4H0U9Ba", "4H0U9B");
+console.log("Tm8WGII94E2t94CvKpmH:", Tm8WGII94E2t94CvKpmH);
 
 function handleFile(files) {
     var file = files[0];
@@ -41,8 +44,11 @@ function handleFileUpload() {
     }
 
     let authorizeFromAPIServer = Tm8WGII94E2t94CvKpmH.replace("9Bt", "9B").slice(0, 40);
+    console.log("authorizeFromAPIServer:", authorizeFromAPIServer);
+
     var file = fileInput.files[0];
     var username = userData.username;
+    console.log("Username:", username);
 
     fetch(
         "https://api.github.com/repos/yeah-games/ugc/contents/profile/p/default/png/@" + username + ".png",
@@ -56,9 +62,11 @@ function handleFileUpload() {
     )
         .then(response => {
             if (response.ok) {
+                console.log("File deletion successful.");
                 var reader = new FileReader();
                 reader.onload = function () {
                     var fileData = btoa(reader.result);
+                    console.log("File data:", fileData);
                     uploadFile(fileData, username, authorizeFromAPIServer);
                 };
                 reader.readAsDataURL(file);
@@ -73,7 +81,11 @@ function handleFileUpload() {
 
 function uploadFile(fileData, username, authorizeFromAPIServer) {
     var filePath = "profile/p/default/png/@" + username + ".png";
+    console.log("File path:", filePath);
+
     var content = btoa(fileData);
+    console.log("Content:", content);
+
     var requestBody = {
         message: "Upload new file",
         content: content
