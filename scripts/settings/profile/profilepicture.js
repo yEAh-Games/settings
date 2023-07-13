@@ -34,7 +34,7 @@ function handleFile(files) {
 }
 
 function handleFileUpload() {
-    var fileInput = document.getElementById('selectedFile');
+    var fileInput = document.getElementById('file-input');
     if (fileInput.files.length === 0) {
         console.log("No file selected.");
         return;
