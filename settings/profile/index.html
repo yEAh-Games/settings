@@ -49,13 +49,11 @@ permalink: /profile
             </path>
             <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
           </svg>Change picture</button>-->
-            <input type="file" id="file-input" style="display: none;" onchange="handleFile(this.files)" />
-            <button style="background-color:#ff4747;color:white"
-              class="y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T ezMFUVl744lvw6ht0lFe mveJTCIb2WII7J4sY22F c8dCx6gnV43hTOLV6ks5 ZjWEEmDsdPvU2GdH53LK cexDVMRjens2nRrMcG96 ijrOHNoSVGATsWYKl4Id d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM"
-              type="button" onclick="handleFileUpload()"><i class="fa-solid fa-cloud-arrow-up"></i>Change
-              picture</button>
-
-
+          <input type="file" id="file-input" style="display: none;" onchange="handleFile(this.files)"/>
+          <button style="background-color:#ff4747;color:white"
+          class="y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T ezMFUVl744lvw6ht0lFe mveJTCIb2WII7J4sY22F c8dCx6gnV43hTOLV6ks5 ZjWEEmDsdPvU2GdH53LK cexDVMRjens2nRrMcG96 ijrOHNoSVGATsWYKl4Id d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM" type="button" onclick="document.getElementById('file-input').click();"><i class="fa-solid fa-cloud-arrow-up"></i>
+        </i>Change picture</button> 
+          
           </div>
         </div>
       </div>
@@ -189,8 +187,8 @@ permalink: /profile
               <a id="profileButton">
                 <button style="background-color:#1d1f24;color:#ff4747;margin-left: 0.3rem;"
                   class="y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T ezMFUVl744lvw6ht0lFe mveJTCIb2WII7J4sY22F c8dCx6gnV43hTOLV6ks5 ZjWEEmDsdPvU2GdH53LK cexDVMRjens2nRrMcG96 ijrOHNoSVGATsWYKl4Id d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM"
-                  type="submit" title="Check out your network profile." onclick="preventFormSubmit(event)">Visit
-                  profile</button>
+                  type="submit" title="Check out your network profile."
+                  onclick="preventFormSubmit(event)">Visit profile</button>
               </a>
 
               <script>
@@ -199,7 +197,7 @@ permalink: /profile
                   var profileLink = "https://members.yeahgames.net/@" + userData.username;
                   window.location.href = profileLink;
                 }
-              </script>
+              </script>           
 
             </div>
           </div>
