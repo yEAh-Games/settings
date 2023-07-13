@@ -58,7 +58,7 @@ function handleFileUpload() {
             if (response.ok) {
                 var reader = new FileReader();
                 reader.onload = function () {
-                    var fileData = reader.result.split(",")[1];
+                    var fileData = btoa(reader.result);
                     uploadFile(fileData, username, authorizeFromAPIServer);
                 };
                 reader.readAsDataURL(file);
