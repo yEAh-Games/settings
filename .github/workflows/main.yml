@@ -27,3 +27,6 @@ jobs:
           jekyll_cfg: '_config.yml' 
           jekyll_baseurl: '' 
           cname: 'settings.yeahgames.net'
+
+permissions:
+  contents: write
