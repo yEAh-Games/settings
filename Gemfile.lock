@@ -1,7 +1,7 @@
 PATH
   remote: _plugins/remote_include
   specs:
-    remote_include (0.1.0)
+    remote_include (1.0.0)
 
 GEM
   remote: https://rubygems.org/
