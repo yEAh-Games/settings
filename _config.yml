@@ -11,3 +11,6 @@ sidebar:
   closed: true # Add "closed: true" if the sidebar should be closed by default. Add "open: true" if it should be open by default, and don't add anything if it should be up to the user.
 
 language: en-ca #Country code language (e.g., "en-ca")
+
+plugins:
+  - remote_include
