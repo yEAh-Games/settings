@@ -1,0 +1,13 @@
+domain: settings.yeahgames.net # Your domain. Don't include a protocol (e.g., https) or any slashes (e.g., "dashboard.yeahgames.net"). 
+name:
+  title: "Settings - yEAh Account" # Your site's name as it shows up in the <title> tag
+  og: "yEAh Account Settings" # Your site's name as it shows up in the og:title meta tag
+  short: "Settings" # Your site's name as it shows up in the navigation header on desktop
+
+login:
+  required: true # If this site requires you to login, set "required" to true. Do not add the object. if it is not required. Note that this does not stop access (it will simply redirect the user to log in), so authorization still needs to be done before completing an action. If you need to make your site private or limit access, yAuth protectedSites is a good option.
+
+sidebar: 
+  closed: true # Add "closed: true" if the sidebar should be closed by default. Add "open: true" if it should be open by default, and don't add anything if it should be up to the user.
+
+language: en-ca #Country code language (e.g., "en-ca")

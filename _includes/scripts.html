@@ -1,0 +1,50 @@
+<script src="https://dashboard.yeahgames.net/api/static/js/app.bundle.js"></script>
+<script src="https://accounts.yeahgames.net/system/all/sha256.js" defer></script>
+<script src="https://accounts.yeahgames.net/system/validation/main.js" defer></script>
+<script defer>
+  var userData = validateUserDataFromCookie();
+
+  if (userData && userData.username) {
+    var authorizedUsername = userData.username;
+    var imageUrl = 'https://ugc.yeahgames.net/profile/p/default/png/@' + authorizedUsername + '.png';
+    var defaultImageUrl = 'https://ugc.yeahgames.net/profile/p/default/png/default.png';
+
+    var imgElement = document.getElementById('accountPfp');
+    if (imgElement) {
+      imgElement.onerror = function () {
+        imgElement.src = defaultImageUrl;
+      };
+      imgElement.src = imageUrl;
+    } else {
+      console.log('img element with ID "accountPfp" not found.');
+    }
+  }
+  var ssoUsername = document.getElementById('ssoUsername');
+  ssoUsername.innerHTML = "@" + authorizedUsername;
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var networkSearchInput = document.getElementById("networkSearch");
+
+    networkSearchInput.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        var searchText = networkSearchInput.value.trim();
+        if (searchText !== "") {
+          var encodedSearchText = encodeURIComponent(searchText);
+          var searchUrl = "https://search.yeahgames.net/search/cse/results#gsc.q=" + encodedSearchText;
+          window.location.href = searchUrl;
+        }
+      }
+    });
+  });
+</script>
+<script>
+  window.addEventListener('load', function () {
+    var loaderOverlay = document.querySelector('.loading-overlay');
+    loaderOverlay.style.display = 'none';
+  });
+</script>
+</script>
+
+<script src="https://accounts.yeahgames.net/system/all/sha256.js" defer></script>
+<script src="https://accounts.yeahgames.net/system/validation/main.js" defer></script>
