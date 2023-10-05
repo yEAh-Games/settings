@@ -1,4 +1,4 @@
-domain: settings.yeahgames.net # Your domain. Don't include a protocol (e.g., https) or any slashes (e.g., "dashboard.yeahgames.net"). 
+domain: settings.ynwk.org # Your domain. Don't include a protocol (e.g., https) or any slashes (e.g., "dashboard.yeahgames.net"). 
 name:
   title: "Settings - yEAh Account" # Your site's name as it shows up in the <title> tag
   og: "yEAh Account Settings" # Your site's name as it shows up in the og:title meta tag
