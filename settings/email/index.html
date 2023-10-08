@@ -80,24 +80,34 @@ permalink: /email
 
 <script>
   window.onload = function() {
-      fetch("https://email.account.ynwk.org/get")
-          .then(response => {
-              if (response.status === 404) {
-                  document.getElementById("email-connected").style.display = "none";
-              } else if (response.status === 200) {
-                  document.getElementById("email-connect").style.display = "none";
-                  return response.json();
-              }
-          })
-          .then(data => {
-              if (data && data.email) {
-                  document.getElementById("email").textContent = "Email: " + data.email;
-              }
-          })
-          .catch(error => {
-              console.error("Error:", error);
-          });
+      const yeahgames_v_cookie = document.cookie.replace(/(?:(?:^|.*;\s*)yeahgames_v\s*=\s*([^;]*).*$)|^.*$/, "$1");
+      const yeahgames_userdata_cookie = document.cookie.replace(/(?:(?:^|.*;\s*)yeahgames_userdata\s*=\s*([^;]*).*$)|^.*$/, "$1");
+
+      const headers = new Headers();
+      headers.append('Cookie', `yeahgames_v=${yeahgames_v_cookie}; yeahgames_userdata=${yeahgames_userdata_cookie}`);
+
+      fetch("https://email.account.ynwk.org/get", {
+          method: 'GET',
+          headers: headers
+      })
+      .then(response => {
+          if (response.status === 404) {
+              document.getElementById("email-connected").style.display = "none";
+          } else if (response.status === 200) {
+              document.getElementById("email-connect").style.display = "none";
+              return response.json();
+          }
+      })
+      .then(data => {
+          if (data && data.email) {
+              document.getElementById("email").textContent = "Email: " + data.email;
+          }
+      })
+      .catch(error => {
+          console.error("Error:", error);
+      });
   };
 </script>
+
 
 </main>
