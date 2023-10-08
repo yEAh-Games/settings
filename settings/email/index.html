@@ -81,12 +81,10 @@ permalink: /email
 <script>
   window.onload = function() {
 
-      const headers = new Headers();
-      headers.append('Cookie', document.cookie);
 
       fetch("https://email.account.ynwk.org/get", {
           method: 'GET',
-          headers: headers
+          credentials: 'include'
       })
       .then(response => {
           if (response.status === 404) {
