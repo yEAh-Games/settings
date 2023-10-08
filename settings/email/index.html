@@ -80,11 +80,9 @@ permalink: /email
 
 <script>
   window.onload = function() {
-      const yeahgames_v_cookie = document.cookie.replace(/(?:(?:^|.*;\s*)yeahgames_v\s*=\s*([^;]*).*$)|^.*$/, "$1");
-      const yeahgames_userdata_cookie = document.cookie.replace(/(?:(?:^|.*;\s*)yeahgames_userdata\s*=\s*([^;]*).*$)|^.*$/, "$1");
 
       const headers = new Headers();
-      headers.append('Cookie', `yeahgames_v=${yeahgames_v_cookie}; yeahgames_userdata=${yeahgames_userdata_cookie}`);
+      headers.append('Cookie', document.cookie);
 
       fetch("https://email.account.ynwk.org/get", {
           method: 'GET',
