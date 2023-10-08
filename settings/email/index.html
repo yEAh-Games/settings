@@ -29,7 +29,7 @@ permalink: /email
             
           </div>
           <div class="_k0lTW0vvzboctTxDi2R Q_jg_EPdNf9eDMn1mLI2">
-            <a href="#"
+            <a href="#" id="connect-button"
               class="b9aD6g2qw84oyZNsMO8j _Cj_M6jt2eLjDgkBBNgI R9nujHypnXyuHrBww9QK _hpGev6RXFut0Jm_iRgf c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe ijrOHNoSVGATsWYKl4Id y6GKdvUrd7vp_pxsFb57 g40_g3BQzYCOX5eZADgY mveJTCIb2WII7J4sY22F YoPCmQ0E_V5W0GGmSIdm _dylIDxYTN3qgvD4U597 KmgKPWh7pHX4ztLneO0T d8_fVOcgDmbt7UdpfeLK WuKugQzwTT7o1wwBck2R _ZsTMX_gz275093orLWM"
               style="cursor:not-allowed!important" title="Coming soon!">Connect</a>
           </div>
@@ -96,13 +96,55 @@ permalink: /email
       })
       .then(data => {
           if (data && data.email) {
-              document.getElementById("email").textContent = "Email: " + data.email;
+              document.getElementById("email").textContent = data.email;
           }
       })
       .catch(error => {
           console.error("Error:", error);
       });
   };
+</script>
+
+
+<script>
+
+const emailInput = document.getElementById('email-input');
+        const connectButton = document.getElementById('connect-button');
+
+        connectButton.addEventListener('click', function(event) {
+            event.preventDefault(); 
+
+            const email = emailInput.value;
+
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            const payload = {
+                email: email
+            };
+
+            fetch('https://email.acccount.ynwk.org/update', {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Email updated successfully');
+                } else {
+                    alert('Error updating email');
+                }
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+            });
+        });
 </script>
 
 
